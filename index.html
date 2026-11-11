@@ -239,7 +239,30 @@
                 document.getElementById('error-msg').classList.remove('hidden');
             }
         }
+        
+        function toggleAudio() {
+            const audio = document.getElementById('bg-audio');
+            const iconBox = document.getElementById('music-icon-box');
+            const statusText = document.getElementById('music-status');
+            const btnText = document.getElementById('audio-btn-text');
 
+            if (audio.paused) {
+                audio.play().then(() => {
+                    iconBox.classList.remove('paused');
+                    statusText.innerText = 'تصدح في الخلفية 🎶';
+                    btnText.innerText = 'إيقاف';
+                }).catch(e => {
+                    console.log("التشغيل محتاج تفاعل مباشر");
+                });
+            } else {
+                audio.pause();
+                iconBox.classList.add('paused');
+                statusText.innerText = 'موقفة حالياً';
+                btnText.innerText = 'تشغيل';
+            }
+        }
+
+        
         function updateTimer() {
             const start = new Date(CONFIG.startDate).getTime();
             const diff = new Date().getTime() - start;
