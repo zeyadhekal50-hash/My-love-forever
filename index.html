@@ -87,6 +87,23 @@
                 </div>
             </div>
             
+                    <!-- VIDEOS SLIDER SECTION (6 VIDEOS) -->
+        <section class="space-y-3">
+            <div class="flex items-center justify-between text-xs text-zinc-400 px-1">
+                <span class="flex items-center gap-1 font-semibold text-rose-300">
+                    <i data-lucide="video" class="w-4 h-4 text-rose-500"></i>
+                    فيديوهات ذكرياتنا 🎥
+                </span>
+                <div class="flex gap-2">
+                    <button onclick="prevVideo()" class="px-3 py-1 rounded-lg bg-rose-600/30 border border-rose-500/40 text-rose-200 text-xs font-bold hover:bg-rose-600 hover:text-white transition">
+                        ← السابق
+                    </button>
+                    <button onclick="nextVideo()" class="px-3 py-1 rounded-lg bg-rose-600/30 border border-rose-500/40 text-rose-200 text-xs font-bold hover:bg-rose-600 hover:text-white transition">
+                        التالي →
+                    </button>
+                </div>
+            </div>
+            
             <div class="glass-card rounded-2xl overflow-hidden border border-rose-500/20 p-2 relative">
                 <div class="relative w-full aspect-[9/16] bg-zinc-950 rounded-xl overflow-hidden flex items-center justify-center">
                     <!-- فيديو 1 -->
@@ -101,9 +118,21 @@
                     <video class="video-slide w-full h-full object-contain bg-black hidden" controls playsinline>
                         <source src="video3.mp4" type="video/mp4">
                     </video>
+                    <!-- فيديو 4 -->
+                    <video class="video-slide w-full h-full object-contain bg-black hidden" controls playsinline>
+                        <source src="video4.mp4" type="video/mp4">
+                    </video>
+                    <!-- فيديو 5 -->
+                    <video class="video-slide w-full h-full object-contain bg-black hidden" controls playsinline>
+                        <source src="video5.mp4" type="video/mp4">
+                    </video>
+                    <!-- فيديو 6 -->
+                    <video class="video-slide w-full h-full object-contain bg-black hidden" controls playsinline>
+                        <source src="video6.mp4" type="video/mp4">
+                    </video>
                 </div>
                 <div class="p-2 text-center">
-                    <span id="video-caption" class="text-xs font-semibold text-rose-200">أحلى اللحظات سوا 🎬 (1 / 3)</span>
+                    <span id="video-caption" class="text-xs font-semibold text-rose-200">أحلى اللحظات سوا 🎬 (1 / 6)</span>
                 </div>
             </div>
         </section>
@@ -280,17 +309,20 @@
             }
         }
 
-        let currentVideoIndex = 0;
+                let currentVideoIndex = 0;
         const videos = document.querySelectorAll('.video-slide');
         const captions = [
-            "أحلى اللحظات سوا 🎬 (1 / 3)",
-            "ضحكتك بالدنيا كلها ✨ (2 / 3)",
-            "ذكرياتنا الجميلة ❤️ (3 / 3)"
+            "أحلى اللحظات سوا 🎬 (1 / 6)",
+            "ضحكتك بالدنيا كلها ✨ (2 / 6)",
+            "ذكرياتنا الجميلة ❤️ (3 / 6)",
+            "أجمل صدفة في عمري 🌸 (4 / 6)",
+            "مع بعض للأبد 🌹 (5 / 6)",
+            "حكايتنا مع بعض 💖 (6 / 6)"
         ];
 
         function showVideo(index) {
             videos.forEach((video, i) => {
-                video.pause(); // يوقف الفيديو الحالي لما نقلب
+                video.pause(); // بيوقف الفيديو القديم لما تقلب لغيره
                 if (i === index) {
                     video.classList.remove('hidden');
                 } else {
