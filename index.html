@@ -240,7 +240,7 @@
             }
         }
         
-        function toggleAudio() {
+                function toggleAudio() {
             const audio = document.getElementById('bg-audio');
             const iconBox = document.getElementById('music-icon-box');
             const statusText = document.getElementById('music-status');
@@ -252,7 +252,8 @@
                     statusText.innerText = 'تصدح في الخلفية 🎶';
                     btnText.innerText = 'إيقاف';
                 }).catch(e => {
-                    console.log("التشغيل محتاج تفاعل مباشر");
+                    alert('خطأ في تشغيل الصوت: تأكد أن ملف song.mp3 مرفوع في نفس مجلد الموقع 🎵');
+                    console.error(e);
                 });
             } else {
                 audio.pause();
